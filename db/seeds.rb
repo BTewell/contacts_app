@@ -5,7 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-contact1 = Contact.new(first_name: 'Bob', last_name: 'Newhart', address: '17 Corona Dr. New Haven, CT 06501', phone: '(203) 443-8717', email: 'bobnewhart@gmail.com')
-contact1.save
-contact1 = Contact.new(first_name: 'Mary', last_name: 'Tyler-Moore', address: '323 Pine Cone Dr. New Haven, CT 06501', phone: '(203) 443-1332', email: 'marytylermoore@gmail.com')
-contact1.save
+# FFaker::Name.first_name
+# FFaker::Name.last_name
+# FFaker::AddressUS.street_address
+# FFaker::AddressUS.city
+# FFaker::AddressUS.state_abbr
+# FFaker::AddressUS.zip_code
+# FFaker::PhoneNumber.short_phone_number
+50.times do
+  first_name = FFaker::Name.first_name
+  last_name = FFaker::Name.last_name
+  email = "#{first_name}#{last_name}@gmail.com"
+  contact1 = Contact.new(first_name: first_name, last_name: last_name, address: FFaker::AddressAU.full_address, phone: FFaker::PhoneNumber.short_phone_number, email: email)
+    contact1.save
+end
+
