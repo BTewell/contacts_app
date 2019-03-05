@@ -1,0 +1,1 @@
+json.message "This contact has been utterly and completely destroyed. Forever."
