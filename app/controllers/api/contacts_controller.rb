@@ -20,8 +20,11 @@ class Api::ContactsController < ApplicationController
       email: params[:email],
       bio: params[:email]
       )
-    @contact.save
-    render 'show.json.jbuilder'
+    if @contact.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder', status: :unprocessible_entity
+    end  
   end
 
   def update
@@ -34,8 +37,11 @@ class Api::ContactsController < ApplicationController
     @contact.phone = params[:phone] || @contact.phone
     @contact.email = params[:email] || @contact.email
     @contact.bio = params[:bio] ||@contact.bio
-    @contact.save
-    render 'show.json.jbuilder'
+    if @contact.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder', status: :unprocessible_entity
+    end  
   end
   
   def destroy
