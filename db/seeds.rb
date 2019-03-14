@@ -12,11 +12,11 @@
 # FFaker::AddressUS.state_abbr
 # FFaker::AddressUS.zip_code
 # FFaker::PhoneNumber.short_phone_number
-50.times do
-  first_name = FFaker::Name.first_name
-  last_name = FFaker::Name.last_name
-  email = "#{first_name}#{last_name}@gmail.com"
-  contact1 = Contact.new(first_name: first_name, last_name: last_name, address: FFaker::AddressAU.full_address, phone: FFaker::PhoneNumber.short_phone_number, email: email)
-    contact1.save
-end
-
+# 50.times do
+#   first_name = FFaker::Name.first_name
+#   last_name = FFaker::Name.last_name
+#   email = "#{first_name}#{last_name}@gmail.com"
+#   contact1 = Contact.new(first_name: first_name, last_name: last_name, address: FFaker::AddressAU.full_address, phone: FFaker::PhoneNumber.short_phone_number, email: email)
+#     contact1.save
+# end
+user = User.create(name: "Al Swearengen", email: "bossman@gemsaloon.com", password: "passsword", password_confirmation: "password")
